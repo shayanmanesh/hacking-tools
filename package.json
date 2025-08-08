@@ -1,0 +1,22 @@
+{
+  "name": "hacking-tools-landing",
+  "version": "1.0.0",
+  "description": "Premium landing page for hacking.tools domain acquisition",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "serve": "python3 -m http.server 8000"
+  },
+  "keywords": [
+    "cybersecurity",
+    "domain",
+    "acquisition",
+    "premium",
+    "landing-page"
+  ],
+  "author": "hacking.tools",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
