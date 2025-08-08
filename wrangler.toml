@@ -1,0 +1,28 @@
+name = "hacking-tools"
+compatibility_date = "2024-08-08"
+pages_build_output_dir = "."
+
+[env.production]
+name = "hacking-tools"
+compatibility_date = "2024-08-08"
+
+[env.production.vars]
+ENVIRONMENT = "production"
+SITE_NAME = "hacking.tools"
+SITE_DESCRIPTION = "The Ethical Security OS"
+
+[env.production.headers]
+pattern = "/*"
+headers = [
+  "X-Frame-Options: DENY",
+  "X-Content-Type-Options: nosniff",
+  "Referrer-Policy: strict-origin-when-cross-origin",
+  "X-XSS-Protection: 1; mode=block",
+  "Strict-Transport-Security: max-age=31536000; includeSubDomains",
+  "Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'"
+]
+
+[env.production.redirects]
+from = "www.hacking.tools"
+to = "https://hacking.tools"
+status = 301

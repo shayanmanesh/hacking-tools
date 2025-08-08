@@ -1,22 +1,44 @@
 {
-  "name": "hacking-tools-landing",
+  "name": "hacking-tools",
   "version": "1.0.0",
-  "description": "Premium landing page for hacking.tools domain acquisition",
+  "description": "The Ethical Security OS - Premium domain acquisition landing page for hacking.tools valued at $450M-$500M USD",
   "main": "index.html",
   "scripts": {
     "start": "python3 -m http.server 8000",
-    "serve": "python3 -m http.server 8000"
+    "serve": "python3 -m http.server 8000",
+    "build": "echo 'Static site - no build required'",
+    "deploy:vercel": "vercel --prod",
+    "deploy:cloudflare": "wrangler pages deploy . --project-name=hacking-tools"
   },
   "keywords": [
     "cybersecurity",
-    "domain",
-    "acquisition",
-    "premium",
+    "ethical-hacking",
+    "security-tools",
+    "enterprise-security",
+    "domain-acquisition",
+    "premium-domain",
+    "venture-capital",
     "landing-page"
   ],
-  "author": "hacking.tools",
+  "author": {
+    "name": "Shayan Bozorgmanesh",
+    "email": "shayan.bozorgmanesh@gmail.com",
+    "url": "https://github.com/shayanmanesh"
+  },
   "license": "MIT",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shayanmanesh/hacking-tools.git"
+  },
+  "homepage": "https://hacking.tools",
+  "bugs": {
+    "url": "https://github.com/shayanmanesh/hacking-tools/issues"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/shayanmanesh"
   }
 }
