@@ -256,7 +256,7 @@
                 <button class="modal-close" onclick="closeContactModal()">&times;</button>
             </div>
             <div class="modal-body">
-                <form id="acquisitionForm" class="acquisition-form">
+                <form id="acquisitionForm" class="acquisition-form" action="https://formspree.io/f/xpzgqjqj" method="POST">
                     <div class="form-group">
                         <label for="company">Organization/Fund Name *</label>
                         <input type="text" id="company" name="company" required>
@@ -301,6 +301,8 @@
                         <label for="message">Investment Thesis/Message</label>
                         <textarea id="message" name="message" rows="4" placeholder="Brief description of your investment thesis or strategic interest..."></textarea>
                     </div>
+                    <input type="hidden" name="_subject" value="Premium Domain Acquisition Inquiry - hacking.tools">
+                    <input type="hidden" name="_next" value="https://hacking.tools/thank-you">
                     <div class="form-actions">
                         <button type="submit" class="btn btn-primary">Submit Inquiry</button>
                         <button type="button" class="btn btn-secondary" onclick="closeContactModal()">Cancel</button>

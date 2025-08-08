@@ -80,25 +80,60 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.textContent = 'Submitting...';
             submitBtn.disabled = true;
             
-            // Simulate form submission (replace with actual endpoint)
-            setTimeout(() => {
-                // Reset form
-                form.reset();
-                
-                // Show success message
-                alert('Thank you for your inquiry! We will contact you within 24 hours to discuss this premium acquisition opportunity.');
-                
-                // Close modal
-                closeContactModal();
-                
+            // Send to Formspree (will forward to your email)
+            const formspreeEndpoint = 'https://formspree.io/f/xpzgqjqj'; // Replace with your Formspree endpoint
+            
+            fetch(formspreeEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    company: data.company,
+                    name: data.name,
+                    title: data.title,
+                    email: data.email,
+                    phone: data.phone,
+                    budget: data.budget,
+                    timeline: data.timeline,
+                    message: data.message,
+                    subject: 'Premium Domain Acquisition Inquiry - hacking.tools',
+                    _subject: 'Premium Domain Acquisition Inquiry - hacking.tools'
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Reset form
+                    form.reset();
+                    
+                    // Show success message
+                    alert('Thank you for your inquiry! We will contact you within 24 hours to discuss this premium acquisition opportunity.');
+                    
+                    // Close modal
+                    closeContactModal();
+                    
+                    // Track submission
+                    console.log('Acquisition inquiry submitted:', data);
+                    
+                    // Track analytics
+                    trackEvent('acquisition_inquiry_submitted', {
+                        company: data.company,
+                        budget: data.budget,
+                        timeline: data.timeline
+                    });
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Form submission error:', error);
+                alert('There was an error submitting your inquiry. Please try again or contact us directly.');
+            })
+            .finally(() => {
                 // Reset button
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
-                
-                // Track submission (add analytics here if needed)
-                console.log('Acquisition inquiry submitted:', data);
-                
-            }, 2000);
+            });
         });
     }
 });
